@@ -1,0 +1,32 @@
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+class DatabaseConnection{
+  setDatabase()async{
+    var directory = await getApplicationDocumentsDirectory();
+    var path = join(directory.path,'smartTech');
+    var database = await openDatabase(path,version: 1,onCreate: _onCreatingDatabase);
+    return database;
+  }
+  _onCreatingDatabase(Database database,int version)async{
+    await database.execute(
+        """
+            CREATE TABLE note(
+                                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                 note TEXT,
+                                 DateTime DATETIME,
+                                 dueDate DATETIME
+            );
+        """
+    );
+    await database.execute(
+        """
+            insert into `note` (note,DateTime,dueDate) values(
+                        '<h1>The truth about me</h1><p></p><ul><li>I am no longer exists in the class of a man.</li><li>I am not available in the class of peaple.</li><li>The i respond to my situations is different from what others do.</li><li>I do not complain in my troubles.</li><li>Check the word i live.</li><li>I don''t talk like a man.</li><li>I don''t speak kuti pa ground pa terera</li><li>When a man is passing through problems that is the end of the man He thinks he is going down but for me its my promotion.</li><li>I work like a spring when i am pressed i know i will stretch after the press</li><li>I follow the course of God.</li><li>For a worldly man to love you you need to love him first.</li><li>If you fight your enemy he will fight back.</li><li>For me if you choose to be my enemy, i will return love and blessings to you.</li></ul><b><u>Job 14:1</u></b><p></p><p>If you born from a woman expect to live few days to live on earth. But those few day but live in trouble.</p><p>1 John 5:1-4</p><p>Who so ever believeth that Jesus is crist is a born of God.</p><p>If you want to graduate, the be born of God.</p><p>Since i am born of God then i will live long and not in troubles.</p><p>I am unstoppable, i praise God always.</p><p>My life is Zoe, which is Godly life.</p><p>When the life of God is flowing you dont even know about malaria and how it feeks like to have malaria.</p><p>For me i know how to get life, that is why i also know how to live long on earth. For me to live long on earth i need the word of God.</p><p>Check about my life:</p><p></p><ul><li>How i pay rentals i am speechless.</li><li>I am not limited.</li></ul><h2>How did i get myself in my class&nbsp;</h2><p>There is only one way which is:</p><p></p><ol><li>New birth. You should be born of God.</li></ol>If you born in God you do not stay the same. Define health, is so powerful that i even brag about it. Since i became a born again i have never got any sickness.<p></p><p>For you to be in my class then you need to be a born again already then you are:</p><p></p><ol><li>in a better place</li><li>No problems can reach you.</li><li>Some problems will just be there to promote you.</li></ol><b>Joseph :</b>Faced troubles for good deeds. Others still render evil to u even if you do good. But there joseph was pressed down the more God raised him a lot. Joseph to be raised he interpreted a dream.<p></p><p>The bible says if you are trustworthy in small things God will trust you in big things. Joseph became a governor after interpreting dreams.</p><p>Most disappointments we experience is because of the trust. We put trust in men instead of God.</p><p>The Bible says everything changes only God does not change.</p><p></p><h2>Understanding the law of creation&nbsp;</h2><p>When God created everything he gave the power to multiply itself.</p><p><b>Gal 6:7</b> Man shall reap what a man saw. That is the law of creation. This law cannot be changed.</p><p>If you want people to bless you, start yourself to bless them.</p><p>The mercy of God will not help on its own. You need take a step.</p><p>God will direct you to his word. That if you follow the word, all good things will follow.</p><p>Bible says you dont have because you didn''t ask. You dont have but you ask then you missed what to ask. "give and you shall be given".</p><p>The law of creation produces after its kind.</p><p><b style="">1 cor 2:16 </b>when i am thinking its not me.</p><p><b>What we should live in thw realities of God</b></p><p></p><ol><li>Study the word. People are perishing because of ignorance. Devil cannot be defeated because we already he is already defeated. So because you dont know then you are perishing. The word of God determines how much successful you would be.</li><ul><li>Know god on everything either in:</li><ul><li>Business&nbsp;</li><li>Work&nbsp;</li><li>School&nbsp;</li></ul><li>The fact that God has given everything it doesn''t mean it will come on its own.</li><li>The bible says the word of God is the light</li><li>The light is knowledge.</li><li><b>Benefits of the word of God&nbsp;</b></li><ul><li>It promotes you when you have them in your heart.</li><li>Heals. The sickness automatically goes away once you have the word of God&nbsp;</li><li>Wisdom. This mean you stir up the Gods wisdom. Wisdom is the ability that one has to apply the knowledge of God to the situation to walk out as a victorious man. When you submit yourself into the house of god.</li></ul></ul><li>Fix your faith in God.</li><ul><li>It is impossible to please God without faith.</li><li>Faith is believing in the promised of God. Thisa makes you to be like a mad man.</li></ul><li>Meditating in the word of God. <b>Joshua 1:8 </b>the law book shall not depart from thy mouth.</li><ul><li>This is more than thinking about the word.</li><li>There is a good success&nbsp;</li><li>Three</li><ol><li>Imagine:</li><ul><li>Having a picture in the word of God</li></ul><li>Speak word of God loudly. This helps to chase the mind of devil and droning the word of God in your mind.</li><ul><li>Stop complaining&nbsp;</li><li>God never forsake you.</li></ul><li>H</li></ol></ul></ol><p></p><p><br></p><p><br></p><p><br></p>',
+                        '2021-09-10T08:30',
+                        '2021-09-10T08:30'
+                      );
+        """
+    );
+  }
+}
